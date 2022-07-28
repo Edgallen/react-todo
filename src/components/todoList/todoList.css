@@ -1,14 +1,21 @@
 .list {
   margin: 0;
+  overflow: hidden;
+  height: 0px;
+  transition: 1s;
+}
+
+.list__show {
+  height: 500px;
 }
 
 .list__container {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   width: 500px;
   background-color: #FFFFFF;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  height: 500px;
   margin: 0;
 }
 
@@ -53,7 +60,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
   font-size: 13px;
   font-weight: 300;
   padding-left: 15px;

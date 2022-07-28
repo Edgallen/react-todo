@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { TodoContext } from '../../services/todoContext';
 import './todoForm.css';
 
 const TodoForm = () => {
   const [showTodos, setShowTodos] = useState<boolean>(false);
   const [newTodo, setNewTodo] = useState<string>('');
 
+  const { showList, toggleList } = useContext(TodoContext);
+
+  useEffect(() => {
+    console.log(showList)
+  }, [showList])
+
+
   const handleArrowClick = () => {
-    setShowTodos(!showTodos);
+    if (toggleList) {
+      toggleList();
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +31,7 @@ const TodoForm = () => {
         className='todo__form'
       >
         <i 
-          className={`ri-arrow-up-s-line todo__arrow ${showTodos ? 'todo__arrow__active' : ''}`}
+          className={`ri-arrow-up-s-line todo__arrow ${showList ? 'todo__arrow__active' : ''}`}
           onClick={handleArrowClick}
         ></i>
         <input 
