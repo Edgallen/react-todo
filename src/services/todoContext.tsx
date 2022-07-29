@@ -1,39 +1,70 @@
-import React, { createContext, Dispatch, FC, SetStateAction, useState } from "react";
-import { TTodoItem } from "../types";
+import React, { createContext, FC, useState } from "react";
+import { TFilter, TTodoItem } from "../types";
 
-interface IThemeContext {
+export interface ITodoContext {
+  filter: string;
+  changeFilter?: (newFilter: TFilter) => void;
+
   showList: boolean;
   toggleList?: () => void;
+
   todos: Array<TTodoItem>;
-  setTodos?: () => void;
+  addTodo?: (todo: TTodoItem) => void;
+  completeTodo?: (newArr: Array<TTodoItem>) => void;
+  clearCompleted?: (newArr: Array<TTodoItem>) => void;
 }
 
 const defaultState = {
+  filter: 'all',
   showList: false,
   todos: []
 }
 
-export const TodoContext = createContext<IThemeContext>(defaultState);
+export const TodoContext = createContext<ITodoContext>(defaultState);
 
 type TTodoProvider = {
   children: React.ReactNode
 }
 
 export const TodoProvider: FC<TTodoProvider> = ({ children }) => {
-  const [showList, setShowList] = useState(defaultState.showList);
-  const [todos, setTodos] = useState(defaultState.todos);
+  const [showList, setShowList] = useState<boolean>(defaultState.showList);
+  const [todos, setTodos] = useState<Array<TTodoItem>>(defaultState.todos);
+  const [filter, setFilter] = useState<string>(defaultState.filter);
 
   const toggleList = () => {
     setShowList(!showList);
-    console.log('Сработало')
   };
+
+  const addTodo = (todo: TTodoItem) => {
+    setTodos([
+      ...todos,
+      todo
+    ]);
+  }
+
+  const completeTodo = (newArr: Array<TTodoItem>) => {
+    setTodos(newArr);
+  }
+
+  const clearCompleted = (newArr: Array<TTodoItem>) => {
+    setTodos(newArr);
+  }
+
+  const changeFilter = (newFilter: TFilter) => {
+    setFilter(newFilter);
+  }
 
   return (
     <TodoContext.Provider
       value={{
+        filter,
+        changeFilter,
         showList,
         toggleList,
-        todos
+        todos,
+        addTodo,
+        completeTodo,
+        clearCompleted
       }}
     >
       {children}

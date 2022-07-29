@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { FormEvent, useContext, useState } from 'react';
 import { TodoContext } from '../../services/todoContext';
+import { TTodoItem } from '../../types';
 import './todoForm.css';
 
 const TodoForm = () => {
-  const [showTodos, setShowTodos] = useState<boolean>(false);
-  const [newTodo, setNewTodo] = useState<string>('');
+  const { todos, addTodo } = useContext(TodoContext);
+  const [newTodo, setNewTodo] = useState<TTodoItem>({
+    text: '',
+    status: 'active'
+  });
 
   const { showList, toggleList } = useContext(TodoContext);
-
-  useEffect(() => {
-    console.log(showList)
-  }, [showList])
-
 
   const handleArrowClick = () => {
     if (toggleList) {
@@ -20,7 +19,21 @@ const TodoForm = () => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewTodo(e.target.value)
+    setNewTodo({
+      ...newTodo,
+      text: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (addTodo && toggleList) {
+      addTodo(newTodo);
+      setNewTodo({
+        text: '',
+        status: 'active'
+      });
+    }
   }
 
   return (
@@ -29,6 +42,7 @@ const TodoForm = () => {
 
       <form 
         className='todo__form'
+        onSubmit={(e) => handleSubmit(e)}
       >
         <i 
           className={`ri-arrow-up-s-line todo__arrow ${showList ? 'todo__arrow__active' : ''}`}
@@ -38,6 +52,7 @@ const TodoForm = () => {
           className='todo__input'
           type="text"
           name='todo__input'
+          value={newTodo.text}
           onChange={(e) => handleInputChange(e)}
           placeholder='What needs to be done?'
         />

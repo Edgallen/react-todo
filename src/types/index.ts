@@ -1,9 +1,6 @@
 export type TTodoItem = {
-  text: string,
-  status: 'Active' | 'Complete'
-}
+  text: string;
+  status: 'active' | 'complete';
+};
 
-export interface ITodoContext {
-  showList: boolean,
-  todos: Array<TTodoItem>;
-}
+export type TFilter = 'all' | 'active' | 'complete';
