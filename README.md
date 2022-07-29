@@ -1,5 +1,5 @@
 # React Todo App
-Todo приложение с ипользованием rect, ts, contextProvider.
+Todo приложение с использованием rect, ts, contextProvider.
 
 Ссылка на превью - 
 

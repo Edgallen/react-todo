@@ -5,8 +5,6 @@ import TodoList from '../todoList/todoList';
 import './App.css';
 
 function App() {
-
-
   return (
     <section className='app'>
       <TodoProvider>
