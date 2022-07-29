@@ -4,7 +4,7 @@ import { TTodoItem } from '../../types';
 import './todoForm.css';
 
 const TodoForm = () => {
-  const { todos, addTodo } = useContext(TodoContext);
+  const { addTodo } = useContext(TodoContext);
   const [newTodo, setNewTodo] = useState<TTodoItem>({
     text: '',
     status: 'active'
