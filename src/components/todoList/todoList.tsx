@@ -67,6 +67,10 @@ const TodoList = () => {
     }
   }
 
+  useEffect(() => {
+    console.log(filter)
+  }, [filter])
+
   return (
   <div className={`list ${showList && 'list__show'}`}>
       {todos.length > 0 && <ul className='list__container'>
@@ -96,7 +100,7 @@ const TodoList = () => {
             Active
           </li>
           <li 
-            className={`sort__item ${filter === 'completed' && 'sort__item__active'}`}
+            className={`sort__item ${filter === 'complete' && 'sort__item__active'}`}
             onClick={() => handleFilterChange('complete')}
           >
             Completed
