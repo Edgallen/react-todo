@@ -1,3 +1,7 @@
+.todo {
+  position: relative;
+}
+
 .todo__title {
   font-size: 80px;
   font-weight: 100;
@@ -48,4 +52,18 @@
 
 .todo__input:focus {
   outline: none;
+}
+
+.notification {
+  position: absolute;
+  background-color: #FEFEFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 61px;
+  width: 200px;
+  top: 106px;
+  left: 550px;
+  padding: 10px 20px;
+  box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
 }
