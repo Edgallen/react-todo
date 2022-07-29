@@ -1,0 +1,51 @@
+.todo__title {
+  font-size: 80px;
+  font-weight: 100;
+  color: #EADCDB;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.todo__form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.todo__arrow {
+  position: absolute;
+  font-size: 30px;
+  left: 10px;
+  color: #c9c9c9;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.todo__arrow__active {
+  transform: rotate(0.5turn);;
+}
+
+.todo__input {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  width: 400px;
+  height: 61px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 0 transparent;
+  background-color: #FEFEFE;
+  font-size: 22px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.todo__input::placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #c9c9c9;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.todo__input:focus {
+  outline: none;
+}

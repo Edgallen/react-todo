@@ -1,0 +1,129 @@
+.list {
+  margin: 0;
+  overflow: hidden;
+  height: 0px;
+  transition: 1s;
+}
+
+.list__show {
+  height: 500px;
+}
+
+.list__container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 500px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 0;
+}
+
+.list__item {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: 30px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.list__circle {
+  position: absolute;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px #c9c9c9 solid;
+  border-radius: 2rem;
+}
+
+.list__circle__active {
+  cursor: pointer;
+}
+
+.list__check {
+  position: absolute;
+  color: #78C1B0;
+  font-size: 28px;
+  font-weight: 300;
+  left: 12px;
+}
+
+.list__text {
+  font-size: 25px;
+  margin-left: 60px;
+  margin-right: 30px;
+  font-weight: 300;
+}
+
+.list__text__disabled {
+  position: relative;
+  display: flex;
+  color: #c9c9c9;
+}
+
+.list__text__disabled::before {
+  position: absolute;
+  content: '';
+  border-top: 2px solid;
+  top: 50%;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  background-color: #FFFFFF;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px;
+  font-size: 13px;
+  font-weight: 300;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 470px;
+  color: #929292;
+}
+
+.footer__sort {
+  display: flex;
+  gap: 15px;
+  margin: 8px 0;
+}
+
+.sort__item {
+  border: 1px transparent solid;
+  border-radius: .2rem;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+.sort__item__active {
+  border: 1px #EADCDB solid;
+}
+
+.clear__button {
+  cursor: pointer;
+}
+
+.bottom__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom__child {
+  height: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #FFFFFF;
+}
+
+.bottom__child:nth-child(1) {
+ width: calc(500px - 8px);
+}
+
+.bottom__child:nth-child(2) {
+ width: calc(500px - 16px);
+}
