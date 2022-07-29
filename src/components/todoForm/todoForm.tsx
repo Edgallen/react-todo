@@ -4,7 +4,7 @@ import { TTodoItem } from '../../types';
 import './todoForm.css';
 
 const TodoForm = () => {
-  const { addTodo } = useContext(TodoContext);
+  const { addTodo, todos } = useContext(TodoContext);
   const [newTodo, setNewTodo] = useState<TTodoItem>({
     text: '',
     status: 'active'
@@ -27,6 +27,11 @@ const TodoForm = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (todos.length === 10) {
+      console.log('Усе');
+      return
+    }
+
     if (addTodo && toggleList) {
       addTodo(newTodo);
       setNewTodo({
@@ -57,6 +62,14 @@ const TodoForm = () => {
           placeholder='What needs to be done?'
         />
       </form>
+
+      {todos.length === 10 && (
+        <div className='notification'>
+            <p className='notification__text'>
+              Хватит добавлять таски, выгоришь же. Больше 10 не разрешаю
+            </p>
+        </div>
+      )}
     </div>
   )
 }
