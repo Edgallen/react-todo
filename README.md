@@ -1,7 +1,7 @@
 # React Todo App
 Todo приложение с использованием rect, ts, contextProvider.
 
-Ссылка на превью - 
+Ссылка на превью - https://edgallen.github.io/react-todo/
 
 ## Оглавление  
 1. [Установка проекта](#Установка-проекта)
